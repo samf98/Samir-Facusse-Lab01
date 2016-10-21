@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ void ejercicio2(int);
 
 int encontrarPrimos(int);
 
-void ejercicio3(string);
+void ejercicio3(int);
 
 int main()
 {
@@ -43,7 +44,7 @@ int main()
 			{
 				cout<<"Ingrese el número: ";
 				cin>>num;
-				ejercicio3(numero);
+				ejercicio3(num);
 				break;
 			}
 		}
@@ -116,7 +117,30 @@ int encontrarPrimos(int numero)
 		return 0;
 }
 
-void ejercicio3(string numero_inicial)
+void ejercicio3(int numero_inicial)
 {
-	
+	stringstream ss;
+	ss<<numero_inicial;
+	string txt = ss.str();
+	int residuo = 0;
+	int numero = numero_inicial;
+	int suma;
+	int arreglo_numeros[txt.size()+1];
+	for(int i = 0; i < txt.size(); i++)
+	{
+		arreglo_numeros[i]=txt[i]-48;
+		suma+=arreglo_numeros[i];
+	}
+	cout<<suma<<endl;
+	cout<<numero_inicial<<endl;
+	if(numero_inicial%suma==0){
+		cout<<"Número Harshad"<<endl;
+		if(encontrarPrimos(numero_inicial/suma))
+		{
+			cout<<"Número Harshad fuerte."<<endl;
+		}
+	}
+	else
+		cout<<"No es número Harshad"<<endl;
+		
 }
