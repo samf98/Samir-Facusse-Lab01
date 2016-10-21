@@ -10,7 +10,7 @@ void ejercicio2(int);
 
 int encontrarPrimos(int);
 
-void ejercicio3(int);
+void ejercicio3(string);
 
 int main()
 {
@@ -42,8 +42,8 @@ int main()
 			case 3:
 			{
 				cout<<"Ingrese el número: ";
-				cin>>num;
-				ejercicio3(num);
+				cin>>numero;
+				ejercicio3(numero);
 				break;
 			}
 		}
@@ -56,7 +56,7 @@ int main()
 void ejercicio1(string numero)
 {
 	int base;
-	int base_decimal;
+	int base_decimal = 0;
 	int numeros[numero.size()+1];
 	for(int i = 0; i < numero.size(); i++)
 	{
@@ -69,7 +69,14 @@ void ejercicio1(string numero)
 			mayor = numeros[j];
 	}
 	base = mayor+1;
-	
+	int posicion = 0;
+	for(int k = base-1; k >= 0; k--)
+	{
+		base_decimal+=numeros[posicion]*pow(base,k);
+		posicion++; 
+	}
+	cout<<numero<<" está en base "<<base<<" y equivale a "<<base_decimal<<" en base decimal";
+	cout<<endl;
 }
 
 void ejercicio2(int num)
@@ -95,12 +102,12 @@ void ejercicio2(int num)
 
 }
 
-int encontrarPrimos(int numero_agregado)
+int encontrarPrimos(int numero)
 {
 	int divisores = 0;
-	for(int i = 1; i <= numero_agregado; i+=1)
+	for(int i = 1; i <= numero; i+=1)
 	{
-		if(numero_agregado%i==0)
+		if(numero%i==0)
 			divisores++;
 	}
 	if(divisores<=2)
@@ -109,7 +116,18 @@ int encontrarPrimos(int numero_agregado)
 		return 0;
 }
 
-void ejercicio3(int num)
+void ejercicio3(string numero)
 {
-
+	int suma_digits = 0;
+	int numeros[numero.size()+1];
+        for(int i = 0; i < numero.size(); i++)
+        {
+                numeros[i] = numero[i]-48;
+		cout<<numeros[i]<<endl;
+        }
+	for(int j = 0; j < numero.size(); j++)
+	{
+		suma_digits+=numeros[j];
+	}
+	cout<<suma_digits<<endl;
 }
