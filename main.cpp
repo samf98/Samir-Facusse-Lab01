@@ -125,14 +125,13 @@ void ejercicio3(int numero_inicial)
 	int residuo = 0;
 	int numero = numero_inicial;
 	int suma;
+	int suma2;
 	int arreglo_numeros[txt.size()+1];
 	for(int i = 0; i < txt.size(); i++)
 	{
 		arreglo_numeros[i]=txt[i]-48;
 		suma+=arreglo_numeros[i];
 	}
-	cout<<suma<<endl;
-	cout<<numero_inicial<<endl;
 	if(numero_inicial%suma==0){
 		cout<<"Número Harshad"<<endl;
 		if(encontrarPrimos(numero_inicial/suma))
