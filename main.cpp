@@ -118,26 +118,5 @@ int encontrarPrimos(int numero)
 
 void ejercicio3(string numero_inicial)
 {
-	int suma_digits = 0;
-	int numero_original = 0;
-	int numero_digitos[numero_inicial.size()+1];
-        for(int i = 0; i < numero_inicial.size(); i++)
-        {
-                numero_digitos[i] = numero_inicial[i]-48;
-		cout<<numero_digitos[i]<<endl;
-        }
-	for(int j = 0; j < numero_inicial.size(); j++)
-	{
-		suma_digits+=numero_digitos[j];
-	}
-	int posicion = 0;
-	for(int k = numero_digitos.size()-1; k >= 0; k--)
-	{
-		numero_original+=numero_digitos[posicion]*pow[10.0, k];
-		posicion++;
-	}
-	cout<<numero_original<<endl;
-	if(numero_original%suma_digits)
-		cout<<numero_inicial<<" es un número de Harshad."<<endl;
-	cout<<suma_digits<<endl;
+	
 }
